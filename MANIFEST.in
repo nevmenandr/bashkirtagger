@@ -1,0 +1,4 @@
+include README.rst
+include LICENSE
+include bashkirtagger/index2tag.json
+include bashkirtagger/index2word.json
