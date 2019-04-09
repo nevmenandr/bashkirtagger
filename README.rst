@@ -31,10 +31,10 @@ Tagging one sentence at a time
 
     >>> from tagger import Tagger
     >>> t = Tagger()
-    >>> sentence = "Яңы Рәсәйҙе төҙөйәсәкбеҙ."
+    >>> sentence = "Бер кеше йәшәй."
     >>> tagged_sentence = t.predict_pos(sentence)
     >>> print(tagged_sentence)
-    [("яңы", "ADJ"), ("рәсәйҙе", "S"), ("төҙөйәсәкбеҙ", "V")]
+    [('бер', 'NUM'), ('кеше', 'S'), ('йәшәй', 'V')]
     
 Tagging a text of several sentences
 
@@ -42,13 +42,10 @@ Tagging a text of several sentences
 
     >>> from tagger import Tagger
     >>> t = Tagger()
-    >>> text = "Яңы Рәсәйҙе төҙөйәсәкбеҙ. Бизнесҡа ярҙам итеүгә ҙур 
-    иғтибар бүләбеҙ."
+    >>> text = "Бер кеше йәшәй. Кем белә."
     >>> tagged_text = t.text_prc(text)
     >>> print(tagged_text)
-    [[("яңы", "ADJ"), ("рәсәйҙе", "S"), ("төҙөйәсәкбеҙ", "V")], 
-    [("бизнесҡа", "S"), ("ярҙам", "S"), ("итеүгә", "V"), ("ҙур", "ADJ"), 
-    ("иғтибар", "S"), ("бүләбеҙ", "V")]]
+    [[('бер', 'NUM'), ('кеше', 'S'), ('йәшәй', 'V')], [("кем", "SPRO"), ("белә", "V")]]
     
     
 Tagset
@@ -77,7 +74,9 @@ was marked up by Bashmorph.
 
 This tool can be used for disambiguation of rule-based markup.
 
-You an make your own wrap of the trained model.
+You can make your own wrap of the trained model.
+
+Model's evaluation: loss: 0.0015 - acc: 0.9996 - val_loss: 0.0975 - val_acc: 0.9847.
 
 
 Contacts
