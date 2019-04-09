@@ -29,7 +29,7 @@ Tagging one sentence at a time
 
 ::
 
-    >>> from tagger import Tagger
+    >>> from bashkirtagger import Tagger
     >>> t = Tagger()
     >>> sentence = "Бер кеше йәшәй."
     >>> tagged_sentence = t.predict_pos(sentence)
@@ -40,7 +40,7 @@ Tagging a text of several sentences
 
 ::
 
-    >>> from tagger import Tagger
+    >>> from bashkirtagger import Tagger
     >>> t = Tagger()
     >>> text = "Бер кеше йәшәй. Кем белә."
     >>> tagged_text = t.text_prc(text)

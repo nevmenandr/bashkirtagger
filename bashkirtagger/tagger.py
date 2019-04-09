@@ -70,11 +70,11 @@ class Tagger(object):
         if not os.path.isfile(MODEL_FILE):
             download_model()
         
-        with open('index2tag.json') as fj:
+        with open(os.path.join(BASE_DIR, 'index2tag.json')) as fj:
             self.index2tag = json.load(fj)
         self.tag2index = {v:k for k, v in self.index2tag.items()}
         
-        with open('index2word.json') as fj:
+        with open(os.path.join(BASE_DIR, 'index2word.json')) as fj:
             self.index2word = json.load(fj)
         self.word2index = {v:k for k, v in self.index2word.items()}
         
