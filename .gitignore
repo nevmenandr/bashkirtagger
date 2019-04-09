@@ -1,0 +1,6 @@
+bashkirtagger.egg-info*
+build*
+dist*
+howtoupload.txt
+__pycache__
+models

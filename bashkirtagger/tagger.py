@@ -91,10 +91,12 @@ class Tagger(object):
         self.model.add(TimeDistributed(Dense(self.t_vocabsize)))
         self.model.add(Activation("softmax"))
         
+        self.model.load_weights(MODEL_FILE)
+        
         self.model.compile(loss="categorical_crossentropy", optimizer="adam",
                           metrics=["accuracy"])
               
-        self.model.load_weights(MODEL_FILE)
+        
         
     def predict_pos(self, sentence):
         """
