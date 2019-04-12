@@ -3,18 +3,14 @@
 import json
 import os
 from string import punctuation, digits
+from keras.models import load_model
 from keras.preprocessing import sequence
-from keras.layers.core import Activation, Dense, RepeatVector
-from keras.layers.embeddings import Embedding
-from keras.layers.recurrent import LSTM
-from keras.models import Sequential
-from keras.layers.wrappers import TimeDistributed, Bidirectional
 import numpy as np
 
 BASE_DIR = os.path.dirname(__file__)
 MODEL_DIR = os.path.join(BASE_DIR, 'models')
 MODEL_URL = "http://nevmenandr.net/models/baskir_pos_model_weights.h5.zip"
-MODEL_FILE = os.path.join(MODEL_DIR, "baskir_pos_model_weights.h5")
+MODEL_FILE = os.path.join(MODEL_DIR, "bashkir_pos_model.h5")
 PUNCTUATION = punctuation + '«»—–…“”\\n\\t ' + digits
 
 def download_model():
@@ -81,20 +77,7 @@ class Tagger(object):
         self.s_vocabsize = min(len(self.word2index), 50000) + 2
         self.t_vocabsize = len(self.tag2index)
         
-        self.model = Sequential()
-        self.model.add(Embedding(self.s_vocabsize, 300,
-                            input_length=40,
-                            embeddings_initializer="glorot_uniform"))
-        self.model.add(LSTM(100))
-        self.model.add(RepeatVector(40))
-        self.model.add(LSTM(100, return_sequences=True))
-        self.model.add(TimeDistributed(Dense(self.t_vocabsize)))
-        self.model.add(Activation("softmax"))
-        
-        self.model.load_weights(MODEL_FILE)
-        
-        self.model.compile(loss="categorical_crossentropy", optimizer="adam",
-                          metrics=["accuracy"])
+        self.model = load_model('/home/boris/Work/bashkir-spell/models/bashkir_pos_model.h5')
               
         
         

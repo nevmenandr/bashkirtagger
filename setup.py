@@ -5,7 +5,7 @@ def long_desc():
         return f.read()
 
 setup(name='bashkirtagger',
-      version='0.6.1',
+      version='0.6.2',
       description='Utility for part-of-speech tagging of Bashkir text',
       long_description=long_desc(),
       classifiers=[
