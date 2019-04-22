@@ -9,7 +9,7 @@ import numpy as np
 
 BASE_DIR = os.path.dirname(__file__)
 MODEL_DIR = os.path.join(BASE_DIR, 'models')
-MODEL_URL = "http://nevmenandr.net/models/baskir_pos_model_weights.h5.zip"
+MODEL_URL = "http://nevmenandr.net/models/bashkir_pos_model.h5.zip"
 MODEL_FILE = os.path.join(MODEL_DIR, "bashkir_pos_model.h5")
 PUNCTUATION = punctuation + '«»—–…“”\\n\\t ' + digits
 
@@ -77,7 +77,7 @@ class Tagger(object):
         self.s_vocabsize = min(len(self.word2index), 50000) + 2
         self.t_vocabsize = len(self.tag2index)
         
-        self.model = load_model('/home/boris/Work/bashkir-spell/models/bashkir_pos_model.h5')
+        self.model = load_model('models/bashkir_pos_model.h5')
               
         
         
