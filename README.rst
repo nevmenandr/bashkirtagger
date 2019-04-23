@@ -18,7 +18,7 @@ The tool could be installed with pip
 Due to limitations on the size of the project, I could not place it 
 on a github or PiPy. After launching the program it will download 
 and unpack the model. No action is necessary on your part. But you 
-will need an Internet connection and about 50 megabytes of incoming 
+will need an Internet connection and about 150 megabytes of incoming 
 traffic.
 
 
